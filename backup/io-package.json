@@ -1,0 +1,41 @@
+{
+    "common": {
+        "name": "zeptrion",
+        "version": "0.0.1",
+        "title": "Zeptrion Air Adapter",
+        "desc": "Feller Zeptrion Air Adapter",
+        "authors": [
+            "Swissglider <swissglider@github.com>"
+        ],
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "icon": "zeptrion.jpg",
+        "materialize": true,
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.zeptrion/master/admin/zeptrion.jpg",
+        "keywords": [
+            "zeptrion",
+            "feller",
+            "zeptrion air",
+            "vis",
+            "GUI",
+            "graphical",
+            "scada"
+        ],
+        "readme": "https://github.com/ioBroker/ioBroker.zeptrion/blob/master/README.md",
+        "loglevel": "info",
+        "type": "general",
+        "license": "MIT",
+        "messagebox": false,
+        "restartAdapters": [
+            "vis"
+        ]
+    },
+    "native": {
+        "test1": true,
+        "test2": 43,
+        "mySelect": "auto",
+        "mdns-search-time": 10
+    },
+    "objects": []
+}

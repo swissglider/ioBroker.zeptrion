@@ -1,0 +1,46 @@
+{
+  "name": "iobroker.zeptrion",
+  "version": "0.0.1",
+  "description": "zeptrion",
+  "author": {
+    "name": "Swissglider",
+    "email": "swissglider@github.com"
+  },
+  "contributors": [
+    {
+      "name": "Swissglider",
+      "email": "swissglider@github.com"
+    }
+  ],
+  "homepage": "https://github.com/ioBroker/ioBroker.zeptrion",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "zeptrion",
+    "Smart Home",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioBroker/ioBroker.zeptrion"
+  },
+  "dependencies": {
+    "mdns-discovery": "^0.2.6",
+    "request": "^2.88.0",
+    "ws": "^6.1.2",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/ioBroker/ioBroker.zeptrion/issues"
+  },
+  "readmeFilename": "README.md"
+}
