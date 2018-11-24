@@ -1,77 +1,48 @@
 ![Logo](admin/zeptrion.png)
+
 # ioBroker.zeptrion
-=================
 
-This adapter is a zeptrion for the creation of an ioBroker adapter. You do not need it unless you plan on developing your own adapter.
 
-It includes both code running within iobroker and as vis widget. If you only plan to create a vis widget then you should use the [iobroker.vis-zeptrion](https://github.com/ioBroker/ioBroker.vis-zeptrion) instead.
+This is the zeptrion air adapter for ioBroker.
+After install and initializing, it searches all the zeptrion air devices in the networt and creates devices and channels with the states.
 
-## Steps 
-1. download and unpack this packet from github ```https://github.com/ioBroker/ioBroker.zeptrion/archive/master.zip```
-  or clone git repository ```git clone --depth=1 https://github.com/ioBroker/ioBroker.zeptrion.git```
+Supported are the following zeptrion air channels:
 
-2. download required npm packets. Write in ioBroker.zeptrion directory:
+- Light Switch
+- Blind
+- Smart Button
 
-  ```npm install```
-  
-3. set name of this zeptrion. Call
-  
-  ```gulp rename --name mynewname --email email@mail.com --author "Author Name"```
-  
-  *mynewname* must be **lower** case and with no spaces.
+Dimmer are handled as a Light Switch
 
-  If gulp is not available, install gulp globally:
-  
-  ```npm install -g gulp-cli```
- 
-4. rename directory from *ioBroker.zeptrion* (can be *ioBroker.zeptrion-master*) to *iobroker.mynewname*
+## Installation
 
-5. to use this zeptrion you should copy it into *.../iobroker/node_modules* directory and then create an instance for it with iobroker.admin
+1. go to the admin site of ioBroker
+2. go to Adapter
+3. go to the Github SIgn on the top left
+4. go to the second tap
+5. enter https://github.com/swissglider/ioBroker.zeptrion
+6. click install
 
-6. create your adapter:
+7. after install finished, go again to Adapter
+8. in the search-field enter zeptrion
+9. add it here
+10. you are done !
 
-  * you might want to start with main.js (code running within iobroker) and admin/index.html (the adapter settings page).
+## Configuration
 
-  * [Adapter-Development-Documentation](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation),
-  
-  * [Installation, setup and first steps with an ioBroker Development Environment](https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment)
-  
-  * [Write and debug vis widgets](https://github.com/ioBroker/ioBroker/wiki/How-to-debug-vis-and-to-write-own-widget-set)
-  
-  * files under the www folders are made available under http://&lt;iobrokerIP&gt;:8082/&lt;adapter-name&gt;/
-    * for this to work the iobroker.vis adapter has to be installed
-    * delete this folder if you do not plan to export any files this way
-    * call ```iobroker upload <adapter-name>``` after you change files in the www folder to get the new files uploaded to vis
-  * the widget folder contains an example of a vis widget
-    * you might want to start with *widget/<adapter-name>.html* and *widget/js/<adapter-name>.js*
-    * call ```iobroker visdebug <adapter-name>``` to enable debugging and upload widget to "vis". (This works only from V0.7.15 of js-controller)
-    * If you do not plan to export any widget then delete the whole widget folder and remove the ```"restartAdapters": ["vis"]``` statement from *io-package.json*
-    * After admin/index.html is changed you must execute ```iobroker upload mynewname``` to see changes in admin console. The same is valid for any files in *admin* and *www* directory  
+on the Configuration site you can configure:
 
-7. change version: edit package.json and then call ```grunt p``` in your adapter directory.
-  
-8. share it with the community
-
-## Requirements
-* your github repository must have name "ioBroker.<adaptername>". **B** is capital in "ioBroker", but in the package.json the *name* must be low case, because npm does not allow upper case letters.
-* *title* in io-package.json (common) is simple short name of adapter in english. *titleLang* is object that consist short names in many languages. *Lang* ist not german Länge, but english LANGuages.
-* Do not use in the title the words "ioBroker" or "Adapter". It is clear anyway, that it is adapter for ioBroker.   
+- time the adapter search on inital for zeptrion devices
+- time the blind to further on the move command
 
 ## Changelog
 
-### 0.6.0 (2017.01.02)
-* (bluefox) Support of admin3
+### 0.0.1
 
-### 0.5.0
-* (vegetto) include vis widget
-
-### 0.4.0
-* (bluefox) fix errors with grunt
-
-### 0.2.0
-* (bluefox) initial release
+- (swissglider) initial release
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2018 Swissglider <swissglider@github.com>
