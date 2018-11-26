@@ -14,7 +14,7 @@ const adapter = new utils.Adapter('zeptrion');
 // is called when adapter shuts down - callback has to be called under any circumstances!
 adapter.on('unload', function (callback) {
     try {
-        adapter.log.info('cleaned everything up...');
+        //adapter.log.info('cleaned everything up...');
         callback();
     } catch (e) {
         callback();
@@ -24,7 +24,7 @@ adapter.on('unload', function (callback) {
 // is called if a subscribed object changes
 adapter.on('objectChange', function (id, obj) {
     // Warning, obj can be null if it was deleted
-    adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
+    //adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
     //console.log('objectChange ' + id + ' ' + JSON.stringify(obj));
     if(!obj){
         if(id.startsWith('zeptrion.')){
@@ -37,7 +37,6 @@ adapter.on('objectChange', function (id, obj) {
             //console.log('New Device: ' + id + ' ' + JSON.stringify(obj))
         }
         if(obj && 'type' in obj && obj.type === 'channel' && fromZeptrionAdapter){
-            //console.log('New Channel: ' + id + ' ' + JSON.stringify(obj))
         }
         if(id.startsWith('enum.rooms.')){
             Channel_Handler.handle_rooms(id, obj, adapter)
@@ -48,16 +47,16 @@ adapter.on('objectChange', function (id, obj) {
 // is called if a subscribed state changes
 adapter.on('stateChange', function (id, state) {
     // Warning, state can be null if it was deleted
-    adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
+    //adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
     // you can use the ack flag to detect if it is status (true) or command (false)
     if(state){
         let fromZeptrionAdapter = (state.from === 'system.adapter.' + adapter.namespace)
-        if(id.endsWith('.state-name')){
+        if(id.endsWith('.state-name') && state.ack == false){
             //console.log(state)
             Channel_Handler.change_channel_name(id, state, adapter)
         }
         if (state && state.ack == null) {
-            adapter.log.info('ack is null!');
+            //adapter.log.info('ack is null!');
         }else if (state && state.ack == false) {
             // changed from iobroker gui
             if(fromZeptrionAdapter){
@@ -67,9 +66,9 @@ adapter.on('stateChange', function (id, state) {
                 Channel_Handler.state_change_ack_false(id, state, adapter)
             }
             //console.log(JSON.stringify(adapter, ' ', 3))
-            adapter.log.info('ack is not set!');
+            //adapter.log.info('ack is not set!');
         }else if(state && state.ack === true){
-            adapter.log.info('ack is set!');
+            //adapter.log.info('ack is set!');
         }
     }
 });
@@ -107,8 +106,11 @@ function main() {
 
     adapter.subscribeStates('*');
     adapter.subscribeObjects('*')
-    adapter.subscribeForeignObjects('enum*')
     start_browse(adapter)
+    var wait_to_enum = ()=>{
+        adapter.subscribeForeignObjects('enum*')
+    }
+    setTimeout(wait_to_enum, 5000)
 }
 
 function start_browse(adapter){
