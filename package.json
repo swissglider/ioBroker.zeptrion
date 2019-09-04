@@ -1,6 +1,6 @@
 {
   "name": "iobroker.zeptrion",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "zeptrion",
   "author": {
     "name": "Swissglider",
@@ -27,13 +27,13 @@
   "dependencies": {
     "mdns-discovery": "^0.2.6",
     "request": "^2.88.0",
-    "ws": "^6.1.2",
+    "ws": "^7.1.2",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "mocha": "^4.1.0",
-    "chai": "^4.1.2"
+    "gulp": "^4.0.2",
+    "mocha": "^6.2.0",
+    "chai": "^4.2.0"
   },
   "main": "main.js",
   "scripts": {
