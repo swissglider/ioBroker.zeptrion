@@ -8,8 +8,12 @@ systemDictionary = {
         "de": "mDns Suchzeit für Zeptrion Geräte in Sekunden"
     },
     "zeptrionBlindMoveTime": {
-        "en": "mDns Suchzeit für Zeptrion Geräte in Sekunden",
+        "en": "move blind and stop after time (t)",
         "de": "Storen move Zeit in Millisekunden"
+    },
+    "zeptrionDimmerDimTime": {
+        "en": "dim light and stop after time (t)",
+        "de": "Dimmer dimm-Zeit in Millisekunden"
     },
     "save_words": {
         "en": "on save adapter restarts with new config immediately",

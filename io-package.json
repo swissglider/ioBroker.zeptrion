@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "zeptrion",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "title": "Zeptrion Air Adapter",
         "desc": "Feller Zeptrion Air Adapter",
         "authors": [
@@ -31,7 +31,8 @@
     },
     "native": {
         "mdnsSearchTime": 10,
-        "zeptrionBlindMoveTime": 500
+        "zeptrionBlindMoveTime": 500,
+        "zeptrionDimmerDimTime": 500
     },
     "objects": []
 }
