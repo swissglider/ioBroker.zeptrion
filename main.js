@@ -1,7 +1,7 @@
 'use strict';
 
 // you have to require the utils module and call adapter function
-const utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require('@iobroker/adapter-core');
 const Zeptrion_Hub = require(__dirname + '/lib/zeptrion/zeptrion_hub');
 const Device_Handler = require(__dirname + '/lib/zeptrion/device_handler');
 const Channel_Handler = require(__dirname + '/lib/zeptrion/channel_handler');
